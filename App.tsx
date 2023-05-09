@@ -1,18 +1,21 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MainLang from './pages/MainLang';
+import MainStart from './pages/MainStart';
+import UserContextProvider from './userContext';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='main-lang'>
-        <Stack.Screen
-          name='main-lang'
-          component={MainLang}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<UserContextProvider>
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName='main-Start'>
+					<Stack.Screen
+						name='main-start'
+						component={MainStart}
+						options={{ headerShown: false }}
+					/>
+				</Stack.Navigator>
+			</NavigationContainer>
+		</UserContextProvider>
+	);
 }
